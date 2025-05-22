@@ -1,0 +1,605 @@
+// Змінні
+$primary-color: #2196f3;
+$success-color: #4caf50;
+$warning-color: #ff9800;
+$text-color: #000;
+$background-color: #bdbaba;
+$border-color: #333;
+$panel-bg: #eee;
+$footer-bg: #f2f2f2;
+$font-stack: Arial, sans-serif;
+
+// Головні стилі
+body {
+  font-family: $font-stack;
+  margin: 20px;
+  background: $background-color;
+  color: $text-color;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    flex: 1;
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+// Header
+header {
+  background-color: $primary-color;
+  border: 1px solid $border-color;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    h1 {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+
+  nav {
+    a {
+      text-decoration: none;
+      color: black;
+      margin-left: 10px;
+      font-size: 1em;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      font-size: 0.9em;
+    }
+
+    .avatar {
+      width: 35px;
+      height: 35px;
+      border: 1px solid $border-color;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Панелі
+.left-panel,
+.right-panel {
+  background-color: $panel-bg;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1;
+  box-sizing: border-box;
+  max-width: 600px;
+}
+
+.left-panel {
+  max-width: 60%;
+
+  p {
+    font-size: 0.9em;
+  }
+}
+
+// Кнопка кроку
+.step-button {
+  display: block;
+  width: 120px;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
+  font-size: 0.9em;
+
+  &:hover {
+    background: $panel-bg;
+  }
+}
+
+// Завдання в правій панелі
+.right-panel {
+  .task {
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+}
+
+// Випадаючий список
+.dropdown {
+  margin-bottom: 10px;
+  text-align: right;
+
+  select {
+    padding: 5px 7px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path fill="%23999" d="M6 8L0 0h12z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
+  }
+}
+
+// Кнопки завдань
+.task-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+
+  &.done {
+    background-color: $success-color;
+
+    &:hover {
+      background-color: darken($success-color, 10%);
+    }
+  }
+
+  &.in-progress {
+    background-color: $warning-color;
+
+    &:hover {
+      background-color: darken($warning-color, 10%);
+    }
+  }
+
+  &.todo {
+    background-color: $primary-color;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+// Footer
+footer {
+  background-color: $footer-bg;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  font-size: 0.9em;
+  color: #555;
+  border-radius: 0 0 10px 10px;
+}
+
+// Змінити ім'я файлу фону тут (наприклад 'bg-login.jpg' або 'bg-register.jpg')
+$bg-image: 'white.jpg';
+
+* {
+  box-sizing: border-box;
+}
+
+.body-login {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-wrapper,
+.register-wrapper {
+  height: 100vh;
+  background-image: url(#{$bg-image});
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.login-form,
+.register-form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: $primary-color;
+  }
+
+  label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 8px rgba(33,150,243,0.5);
+    }
+  }
+
+  button {
+    margin-top: 25px;
+    width: 100%;
+    background-color: $primary-color;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+// Стиль для блоку з фото та інформацією користувача
+.user-info-photo {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-grow: 1;  // Розтягуємося на весь доступний простір
+  min-width: 0;
+  padding: 40px;
+
+  .user-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid $border-color;
+  }
+
+  .user-details {
+    p {
+      margin: 4px 0;
+      font-size: 1.4em;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Компактний блок статистики праворуч
+.right-panel.compact-statistics {
+  max-width: 500px;
+  flex: 0 0 350px;
+  padding: 15px;
+  box-sizing: border-box;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+
+    span {
+      font-weight: 500;
+    }
+
+    strong {
+      font-weight: 700;
+      color: $primary-color;
+    }
+  }
+
+  .task-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px 0;
+
+    .btn {
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 0.95em;
+      cursor: pointer;
+      color: white;
+
+      &.done {
+        background-color: $success-color;
+
+        &:hover {
+          background-color: darken($success-color, 10%);
+        }
+      }
+
+      &.in-progress {
+        background-color: $warning-color;
+
+        &:hover {
+          background-color: darken($warning-color, 10%);
+        }
+      }
+
+      &.todo {
+        background-color: $primary-color;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+.profile-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: $font-stack;
+  color: $text-color;
+
+  .user-info-photo {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    background: $panel-bg;
+    padding: 30px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    border: 1px solid $border-color;
+
+    .user-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid $border-color;
+      flex-shrink: 0;
+    }
+
+    .user-details {
+      p {
+        margin: 8px 0;
+        font-size: 1.2em;
+
+        strong {
+          font-weight: 600;
+          color: $primary-color;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+
+  .statistics-panel {
+    flex-shrink: 0;
+    width: 350px;
+    background: $panel-bg;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.4em;
+      color: $primary-color;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 15px;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background: white;
+
+      span {
+        font-weight: 500;
+      }
+
+      strong {
+        font-weight: 700;
+        color: $primary-color;
+      }
+    }
+
+    .stat-buttons {
+      margin-top: auto;
+      display: flex;
+      gap: 15px;
+
+      .btn {
+        flex: 1;
+        padding: 10px 0;
+        border-radius: 8px;
+        font-size: 1em;
+        color: white;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s ease;
+
+        &.done {
+          background-color: $success-color;
+
+          &:hover {
+            background-color: darken($success-color, 10%);
+          }
+        }
+
+        &.in-progress {
+          background-color: $warning-color;
+
+          &:hover {
+            background-color: darken($warning-color, 10%);
+          }
+        }
+
+        &.todo {
+          background-color: $primary-color;
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-wrapper main {
+  display: flex;
+  gap: 20px;
+
+  .left-panel {
+    flex-grow: 1;
+    min-width: 0;
+    background: $panel-bg;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .right-panel {
+    flex-shrink: 0;
+    flex-basis: 350px;
+    background: $panel-bg;
+    padding: 20px;
+    border-radius: 10px;
+  }
+}
+
+// Додаткові стилі для лівої панелі з дедлайнами та кроками завдань
+.left-panel {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-right: 2px solid #ccc;
+  border-radius: 10px;
+
+  .task-deadline {
+    margin-bottom: 20px;
+    background: #eaf7ff;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    label {
+      margin-right: 10px;
+    }
+
+    .deadline-date {
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .task-step {
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+
+      input[type="checkbox"] {
+        accent-color: #007acc;
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+
+    .step-date {
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  }
+}
+
+

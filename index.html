@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TO-Doshka</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="left">
+        <h1>TO-Doshka</h1>
+        <nav>
+          <a href="#">Головна</a>
+          <a href="#">Про нас</a>
+          <a href="#">Налаштування</a>
+        </nav>
+      </div>
+      <div class="right">
+        <span>Pedro Gonsales</span>
+        <img class="avatar" src="image.jpg" alt="Avatar" />
+      </div>
+    </header>
+
+    <main>
+      <section class="left-panel">
+        <h2>Деталі задачі</h2>
+        <p>Дуже детальний опис таски, написано все що можна зробити</p>
+
+        <div class="task-deadline">
+          <label for="main-deadline">Дедлайн усієї задачі:</label>
+          <input type="date" id="main-deadline" class="deadline-date" />
+        </div>
+
+        <div class="task-step">
+          <label>
+            <input type="checkbox" />
+            Крок 1 — Зібрати інструменти
+          </label>
+          <input type="date" class="step-date" title="Дата виконання кроку" />
+        </div>
+
+        <div class="task-step">
+          <label>
+            <input type="checkbox" />
+            Крок 2 — Виконати завдання
+          </label>
+          <input type="date" class="step-date" title="Дата виконання кроку" />
+        </div>
+
+        <div class="task-step">
+          <label>
+            <input type="checkbox" />
+            Крок 3 — Перевірити результат
+          </label>
+          <input type="date" class="step-date" title="Дата виконання кроку" />
+        </div>
+      </section>
+
+      <section class="right-panel">
+        <h2>Завдання</h2>
+
+        <div class="task-buttons">
+          <button class="btn done">Виконані</button>
+          <button class="btn in-progress">В процесі</button>
+          <button class="btn todo">До виконання</button>
+        </div>
+
+        <div class="task">
+          <span>Прибрати в кімнаті</span>
+          <div class="dropdown">
+            <select class="todo-select">
+              <option value="done">Виконано</option>
+              <option value="progress">В процесі</option>
+              <option value="todo" selected>До виконання</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <div class="task">
+          <span>Поїсти</span>
+          <div class="dropdown">
+            <select class="todo-select">
+              <option value="done">Виконано</option>
+              <option value="progress" selected>В процесі</option>
+              <option value="todo">До виконання</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <div class="task">
+          <span>Поспати</span>
+          <div class="dropdown">
+            <select class="todo-select">
+              <option value="done">Виконано</option>
+              <option value="progress">В процесі</option>
+              <option value="todo" selected>До виконання</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+
+        <button class="add-task-btn" onclick="alert('Функція додавання поки не реалізована')">Додати задачу</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 TO-Doshka. Усі права захищено.</p>
+    </footer>
+  </div>
+</body>
+</html>

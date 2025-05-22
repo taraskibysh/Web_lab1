@@ -1,0 +1,160 @@
+// profile.scss
+
+// Змінні (можна імпортувати з основних змінних, якщо є)
+$primary-color: #2196f3;
+$border-color: #333;
+$panel-bg: #eee;
+$text-color: #000;
+
+// Контейнер сторінки профілю
+.profile-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  color: $text-color;
+
+  // Блок з інформацією про користувача + фото
+  // Блок з інформацією про користувача + фото
+.user-info-photo {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  gap: 25px; // більше простору між фото і текстом
+  align-items: center;
+  background: $panel-bg;
+  padding: 30px; // збільшений padding
+  border-radius: 12px;
+  box-sizing: border-box;
+  border: 1px solid $border-color;
+
+  .user-photo {
+    width: 140px; // збільшено з 100px
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid $border-color;
+    flex-shrink: 0;
+  }
+
+  .user-details {
+    p {
+      margin: 8px 0; // трохи більше вертикального простору
+      font-size: 1.2em; // збільшено з 1em
+
+      strong {
+        font-weight: 600;
+        color: $primary-color;
+        font-size: 1.2em; // акцентований сильніше
+      }
+    }
+  }
+}
+
+
+  // Блок статистики праворуч
+  .statistics-panel {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 350px;
+    background: $panel-bg;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.4em;
+      color: $primary-color;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 15px;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background: white;
+
+      span {
+        font-weight: 500;
+      }
+
+      strong {
+        font-weight: 700;
+        color: $primary-color;
+      }
+    }
+
+    .stat-buttons {
+      margin-top: auto; // кнопки внизу
+      display: flex;
+      gap: 15px;
+
+      .btn {
+        flex: 1;
+        padding: 10px 0;
+        border-radius: 8px;
+        font-size: 1em;
+        color: white;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s ease;
+
+        &.done {
+          background-color: #4caf50;
+
+          &:hover {
+            background-color: darken(#4caf50, 10%);
+          }
+        }
+
+        &.in-progress {
+          background-color: #ff9800;
+
+          &:hover {
+            background-color: darken(#ff9800, 10%);
+          }
+        }
+
+        &.todo {
+          background-color: $primary-color;
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Окремо для page-wrapper main, щоб кер
+.page-wrapper main {
+  display: flex;
+  gap: 20px;
+
+  .left-panel {
+    flex-grow: 1;     // займає весь доступний простір
+    min-width: 0;     // щоб не виходити за межі
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .right-panel {
+    flex-shrink: 0;   // не стискається
+    flex-basis: 350px; // фіксована ширина
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+  }
+}
