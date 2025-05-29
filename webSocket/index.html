@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простий Чат-Додаток</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            background-color: #ffffff;
+            border-radius: 1rem; /* rounded-2xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            width: 100%;
+            max-width: 500px;
+            padding: 1.5rem; /* p-6 */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space-y-4 */
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem; /* mb-2 */
+            font-weight: 600; /* font-semibold */
+            color: #4b5563; /* text-gray-700 */
+        }
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 0.75rem; /* p-3 */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-size: 1rem; /* text-base */
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
+        }
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #2563eb; /* border-blue-600 */
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); /* ring-blue-500/50 */
+        }
+        .btn {
+            padding: 0.75rem 1.25rem; /* px-5 py-3 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+        }
+        .btn-primary {
+            background-color: #2563eb; /* bg-blue-600 */
+            color: #ffffff; /* text-white */
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8; /* bg-blue-700 */
+        }
+        .messages-box {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1rem; /* p-4 */
+            min-height: 200px;
+            max-height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* space-y-3 */
+            border: 1px solid #d1d5db;
+        }
+        .message-item {
+            background-color: #ffffff;
+            padding: 0.75rem 1rem; /* px-4 py-3 */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+            word-wrap: break-word;
+        }
+        .message-item strong {
+            color: #1f2937; /* text-gray-900 */
+        }
+        .message-item span {
+            font-size: 0.875rem; /* text-sm */
+            color: #6b7280; /* text-gray-500 */
+            margin-left: 0.5rem;
+        }
+        .message-item p {
+            margin-top: 0.5rem;
+            color: #374151; /* text-gray-800 */
+        }
+        .message-item.type-work {
+            background-color: #dbeafe; /* blue-100 */
+            border-left: 4px solid #3b82f6; /* blue-500 */
+        }
+        .message-item.type-personal {
+            background-color: #fef3c7; /* amber-100 */
+            border-left: 4px solid #f59e0b; /* amber-500 */
+        }
+        .message-item.type-important {
+            background-color: #fee2e2; /* red-100 */
+            border-left: 4px solid #ef4444; /* red-500 */
+        }
+        .message-item.type-other {
+            background-color: #e0f2fe; /* light blue-100 */
+            border-left: 4px solid #0ea5e9; /* sky-500 */
+        }
+        .status-message {
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">Простий Чат</h1>
+
+        <div class="input-group">
+            <label for="usernameInput">Ваше ім'я:</label>
+            <input type="text" id="usernameInput" placeholder="Введіть ваше ім'я" class="focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <div class="input-group">
+            <label for="messageTypeSelect">Тип повідомлення:</label>
+            <select id="messageTypeSelect" class="focus:ring-blue-500 focus:border-blue-500">
+                <option value="personal">Особисте</option>
+                <option value="work">Робоче</option>
+                <option value="important">Важливе</option>
+                <option value="other">Інше</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="messageInput">Повідомлення:</label>
+            <textarea id="messageInput" rows="3" placeholder="Введіть ваше повідомлення" class="focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+
+        <button id="sendMessageBtn" class="btn btn-primary">Надіслати</button>
+
+        <div class="messages-box" id="messagesBox">
+            <div class="status-message" id="connectionStatus">Підключення до сервера...</div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Firebase imports (included as per instructions, but not used in this basic chat example)
+        // const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        // const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        // import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        // import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // const app = initializeApp(firebaseConfig);
+        // const db = getFirestore(app);
+        // const auth = getAuth(app);
+
+        // let userId = null;
+        // let isAuthReady = false;
+
+        // // Firebase Authentication setup (placeholder)
+        // onAuthStateChanged(auth, async (user) => {
+        //     if (user) {
+        //         userId = user.uid;
+        //     } else {
+        //         try {
+        //             if (typeof __initial_auth_token !== 'undefined') {
+        //                 await signInWithCustomToken(auth, __initial_auth_token);
+        //                 userId = auth.currentUser?.uid;
+        //             } else {
+        //                 await signInAnonymously(auth);
+        //                 userId = auth.currentUser?.uid || crypto.randomUUID();
+        //             }
+        //         } catch (error) {
+        //             console.error("Firebase Auth Error:", error);
+        //             userId = crypto.randomUUID(); // Fallback to random ID if auth fails
+        //         }
+        //     }
+        //     isAuthReady = true;
+        //     console.log("Firebase Auth Ready. User ID:", userId);
+        //     // You would typically initialize Firestore listeners here if using Firestore
+        // });
+
+
+        const usernameInput = document.getElementById('usernameInput');
+        const messageInput = document.getElementById('messageInput');
+        const messageTypeSelect = document.getElementById('messageTypeSelect');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const messagesBox = document.getElementById('messagesBox');
+        const connectionStatus = document.getElementById('connectionStatus');
+
+        // --- WebSocket setup ---
+        // IMPORTANT: Replace 'ws://localhost:8080' with the actual address of your WebSocket server.
+        // If your server is running on the same machine and port 8080, this will work.
+        const socket = new WebSocket('ws://localhost:8080');
+
+        socket.onopen = () => {
+            console.log('WebSocket connected.');
+            connectionStatus.textContent = 'Підключено до чату.';
+            connectionStatus.classList.remove('text-gray-500');
+            connectionStatus.classList.add('text-green-600');
+
+            // Send a unique ID or username to the server upon connection
+            // For this example, we'll use a simple random ID if username is not set.
+            // In a real app, this would be an authentication token or user ID.
+            const initialId = usernameInput.value.trim() || `guest_${Math.random().toString(36).substring(2, 9)}`;
+            socket.send(initialId);
+        };
+
+        socket.onmessage = (event) => {
+            // Assuming the server sends messages as plain text or JSON
+            const receivedData = event.data;
+            console.log('Message from server:', receivedData);
+
+            try {
+                const message = JSON.parse(receivedData);
+                displayMessage(message.username, message.message, message.type);
+            } catch (e) {
+                // If it's not JSON, display as a raw server message
+                displayMessage('Сервер', receivedData, 'other');
+            }
+        };
+
+        socket.onclose = (event) => {
+            console.log('WebSocket disconnected:', event);
+            connectionStatus.textContent = `Відключено від чату. Код: ${event.code}, Причина: ${event.reason || 'Невідомо'}`;
+            connectionStatus.classList.remove('text-green-600');
+            connectionStatus.classList.add('text-red-600');
+        };
+
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+            connectionStatus.textContent = 'Помилка підключення до чату.';
+            connectionStatus.classList.remove('text-green-600');
+            connectionStatus.classList.add('text-red-600');
+        };
+
+        // Function to display messages in the chat box
+        function displayMessage(username, message, type) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message-item', `type-${type}`);
+            messageElement.innerHTML = `
+                <strong>${username}</strong> <span>(${type})</span>
+                <p>${message}</p>
+            `;
+            messagesBox.appendChild(messageElement);
+            // Scroll to the bottom to show the latest message
+            messagesBox.scrollTop = messagesBox.scrollHeight;
+        }
+
+        // Event listener for sending messages
+        sendMessageBtn.addEventListener('click', () => {
+            const username = usernameInput.value.trim();
+            const message = messageInput.value.trim();
+            const messageType = messageTypeSelect.value;
+
+            if (username === '') {
+                alert('Будь ласка, введіть ваше ім\'я.'); // Using alert for simplicity, but custom modal is preferred
+                return;
+            }
+
+            if (message === '') {
+                alert('Будь ласка, введіть повідомлення.'); // Using alert for simplicity, but custom modal is preferred
+                return;
+            }
+
+            if (socket.readyState === WebSocket.OPEN) {
+                // Send message to the server as a JSON string
+                const chatMessage = {
+                    username: username,
+                    message: message,
+                    type: messageType
+                };
+                socket.send(JSON.stringify(chatMessage));
+                console.log('Sent:', chatMessage);
+
+                // Optionally, display your own message immediately
+                displayMessage(username, message, messageType);
+                messageInput.value = ''; // Clear message input after sending
+            } else {
+                alert('Не підключено до сервера WebSocket. Спробуйте пізніше.'); // Using alert for simplicity
+            }
+        });
+
+        // Allow sending message by pressing Enter in the message input
+        messageInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter' && !event.shiftKey) { // Shift+Enter for new line
+                event.preventDefault(); // Prevent default Enter behavior (new line)
+                sendMessageBtn.click();
+            }
+        });
+
+        // Initialize username from localStorage if available
+        window.onload = () => {
+            const savedUsername = localStorage.getItem('chatUsername');
+            if (savedUsername) {
+                usernameInput.value = savedUsername;
+            }
+        };
+
+        // Save username to localStorage on input change
+        usernameInput.addEventListener('input', () => {
+            localStorage.setItem('chatUsername', usernameInput.value.trim());
+        });
+
+    </script>
+</body>
+</html>

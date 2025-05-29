@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід - InsurePro (Статичний Демо)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css"> </head>
+<body>
+
+    <header class="site-header">
+        <nav class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                InsurePro
+            </a>
+            <div class="header-actions">
+                <a href="register.html" class="btn btn-light">Реєстрація</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container site-main">
+        <section class="auth-section">
+            <div class="card auth-card">
+                <div class="auth-header">
+                    <h1>Вхід до системи</h1>
+                    <p>Будь ласка, введіть ваші дані для входу.</p>
+                </div>
+
+                <form id="login-form" class="auth-form">
+                    <div>
+                        <label for="login-email">Електронна пошта</label>
+                        <input type="email" id="login-email" placeholder="your@email.com" value="demo@example.com">
+                    </div>
+                    <div>
+                        <label for="login-password">Пароль</label>
+                        <input type="password" id="login-password" placeholder="••••••••" value="password">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-full-width">Увійти</button> </form>
+                <p class="auth-switch-text">Не маєте акаунту? <a href="register.html">Зареєструватися</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 InsurePro. Всі права захищено.</p>
+    </footer>
+
+    <!-- Модальні вікна тут не потрібні для статичного демо цієї сторінки,
+         але структура для них є в SCSS, якщо знадобиться на інших сторінках. -->
+</body>
+</html>

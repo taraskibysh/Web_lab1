@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація - InsurePro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                InsurePro
+            </a>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-light">Вхід</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container site-main">
+        <section class="auth-section">
+            <div class="card auth-card">
+                <div class="auth-header">
+                    <h1>Створення акаунту</h1>
+                    <p>Заповніть форму для реєстрації.</p>
+                </div>
+
+                <form id="register-form" class="auth-form">
+                    <div>
+                        <label for="firstName">Ім'я</label>
+                        <input type="text" id="firstName" placeholder="Ваше ім'я" required>
+                    </div>
+                    <div>
+                        <label for="lastName">Прізвище</label>
+                        <input type="text" id="lastName" placeholder="Ваше прізвище" required>
+                    </div>
+                    <div>
+                        <label for="email">Електронна пошта</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div>
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" placeholder="Мінімум 6 символів" required>
+                    </div>
+                     <div>
+                        <label for="confirm-password">Підтвердіть Пароль</label>
+                        <input type="password" id="confirm-password" placeholder="Повторіть пароль" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-full-width">Зареєструватися</button>
+                </form>
+                <p class="auth-switch-text">Вже маєте акаунт? <a href="login.html">Увійти</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year"></span> InsurePro. Всі права захищено.</p>
+    </footer>
+
+    <div id="message-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="message-modal-title">Повідомлення</h3>
+                <button id="message-modal-close-top" class="modal-close-button">&times;</button>
+            </div>
+            <p id="message-modal-text">Текст повідомлення тут.</p>
+            <button id="message-modal-close-bottom" class="btn btn-primary btn-full-width">OK</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

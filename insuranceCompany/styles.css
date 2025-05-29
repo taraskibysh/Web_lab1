@@ -1,0 +1,517 @@
+/* Global Styles */
+:root {
+    --primary-color: #3B82F6; /* Синій */
+    --primary-color-dark: #1E40AF; /* Темно-синій */
+    --primary-color-hover: #2563EB; /* Синій при наведенні */
+    --secondary-color: #10B981; /* Зелений */
+    --secondary-color-hover: #059669; /* Зелений при наведенні */
+    --danger-color: #EF4444; /* Червоний */
+    --danger-color-hover: #DC2626; /* Червоний при наведенні */
+    --light-gray-color: #F3F4F6; /* Світло-сірий фон */
+    --medium-gray-color: #D1D5DB; /* Середньо-сірий для меж */
+    --dark-gray-color: #374151; /* Темно-сірий текст */
+    --text-color-light: #FFFFFF;
+    --card-bg-color: #FFFFFF;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --font-family: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    background-color: var(--light-gray-color);
+    color: var(--dark-gray-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.site-main {
+    flex-grow: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Header */
+.site-header {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-light);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 1.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    margin-right: 0.5rem;
+    margin-top: -2px; /* Visual adjustment */
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-greeting {
+    color: #E0E7FF; /* Light blue for greeting text */
+    margin-right: 1rem;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto; /* Pushes footer to bottom */
+    box-shadow: inset 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.footer-subtitle {
+    font-size: 0.875rem;
+    color: #A5B4FC; /* Lighter blue for subtitle */
+    margin-top: 0.25rem;
+}
+
+/* Card */
+.card {
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.card h1, .card h2 {
+    color: var(--primary-color-dark);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.card h2 {
+    margin-bottom: 1rem;
+}
+
+
+/* Forms */
+.auth-form div, .form-stacked div {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--medium-gray-color);
+    border-radius: var(--border-radius);
+    box-sizing: border-box; /* Important for width 100% */
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Focus ring like Tailwind */
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex; /* For icon alignment */
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    text-decoration: none; /* For button-like links */
+}
+.btn svg {
+    margin-right: 0.5em;
+}
+
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+.btn-primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+}
+.btn-secondary:hover {
+    background-color: var(--secondary-color-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--text-color-light);
+}
+.btn-danger:hover {
+    background-color: var(--danger-color-hover);
+}
+
+.btn-light {
+    background-color: #E5E7EB; /* gray-200 */
+    color: var(--dark-gray-color);
+}
+.btn-light:hover {
+    background-color: var(--medium-gray-color); /* gray-300 */
+}
+
+.btn-logout {
+    background-color: var(--danger-color);
+    color: var(--text-color-light);
+    padding: 0.5rem 1rem; /* Smaller padding for logout */
+}
+.btn-logout:hover {
+    background-color: var(--danger-color-hover);
+}
+
+
+.btn-full-width {
+    width: 100%;
+    display: block; /* To take full width */
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+
+/* Auth Section */
+.auth-section {
+    max-width: 450px;
+    margin: 0 auto;
+}
+.auth-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.auth-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.auth-header p {
+    color: #6B7280; /* gray-500 */
+}
+
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray-color);
+}
+
+.tab-button {
+    flex: 1;
+    padding: 0.75rem 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-gray-color);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-button:hover {
+    color: var(--primary-color);
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Insurance Section */
+.insurance-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Default for mobile */
+    gap: 2rem;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    .insurance-layout {
+        grid-template-columns: 1fr 2fr; /* Sidebar and main content */
+    }
+}
+
+.insurance-items-container .empty-list-message {
+    color: #6B7280; /* gray-500 */
+    font-style: italic;
+    padding: 1rem;
+    text-align: center;
+}
+
+.insurance-item {
+    background-color: #F9FAFB; /* gray-50 */
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--medium-gray-color);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.insurance-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.insurance-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.125rem; /* text-lg */
+}
+
+.insurance-item p {
+    font-size: 0.875rem; /* text-sm */
+    color: var(--dark-gray-color);
+    margin-bottom: 0.25rem;
+}
+.insurance-item p strong {
+    font-weight: 500;
+}
+.insurance-item .details-link {
+    display: block;
+    text-align: right;
+    font-size: 0.875rem;
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+
+/* Details Page */
+.details-section {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.details-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.details-card-header h1 {
+    margin-bottom: 0; /* Override card h1 margin */
+    text-align: left;
+}
+.details-card-header .btn svg {
+    margin-top: -2px; /* Visual adjustment */
+    width: 1em;
+    height: 1em;
+}
+
+
+.insurance-info-display p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+.info-label {
+    font-weight: 600;
+    color: #111827; /* gray-900 */
+    min-width: 120px; /* For alignment */
+    display: inline-block;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    margin-top: 2rem;
+}
+.action-buttons .btn {
+    flex: 1; /* Make buttons take equal width */
+}
+
+
+/* Modals */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color);
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px; /* Default max-width */
+}
+.modal-content.small {
+    max-width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--medium-gray-color);
+}
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem; /* text-xl */
+    color: var(--primary-color-dark);
+}
+.modal-header .text-danger { /* For delete confirmation title */
+    color: var(--danger-color);
+}
+
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--dark-gray-color);
+    cursor: pointer;
+}
+.modal-close-button:hover {
+    color: var(--danger-color);
+}
+
+.modal-content p {
+    margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end; /* Align buttons to the right for edit/delete */
+    margin-top: 1.5rem;
+}
+.modal-actions .btn {
+    min-width: 100px; /* Ensure buttons have a decent width */
+}
+
+
+/* Utility Classes */
+.hidden {
+    display: none !important; /* Important to override other display properties */
+}
+
+/* Responsive adjustments if any more are needed */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 1.5rem;
+    }
+    .modal-header h3 {
+        font-size: 1.25rem;
+    }
+    .action-buttons {
+        flex-direction: column; /* Stack action buttons on small screens */
+    }
+    .tabs {
+        font-size: 0.9rem; /* Slightly smaller tabs on mobile */
+    }
+    .details-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .details-card-header h1 {
+        margin-bottom: 0.5rem;
+    }
+    .details-card-header .btn {
+        align-self: flex-start; /* Align button to left under title */
+        margin-top: 0.5rem;
+    }
+}
+/* Додайте це до вашого styles.css, якщо потрібно */
+.auth-switch-text {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--dark-gray-color);
+}
+
+.auth-switch-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-switch-text a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для повідомлення про перенаправлення на index.html */
+#auth-redirect-message .card {
+    padding: 2rem;
+    text-align: center;
+}
+#auth-redirect-message p {
+    font-size: 1.1rem;
+    color: var(--dark-gray-color);
+}
+#auth-redirect-message a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+#auth-redirect-message a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для .text-danger в модальному вікні (якщо ще не визначено) */
+.modal-header h3.text-danger {
+    color: var(--danger-color); /* Або ваш визначений колір для помилок */
+}

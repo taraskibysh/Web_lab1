@@ -1,0 +1,475 @@
+// SCSS/styles.scss
+
+// --- Variables ---
+:root { // CSS custom properties can still be useful for dynamic changes via JS if ever needed
+    --primary-color: #3B82F6;
+    --primary-color-dark: #1E40AF;
+    --primary-color-hover: #2563EB;
+    --secondary-color: #10B981;
+    --secondary-color-hover: #059669;
+    --danger-color: #EF4444;
+    --danger-color-hover: #DC2626;
+    --light-gray-color: #F3F4F6;
+    --medium-gray-color: #D1D5DB;
+    --dark-gray-color: #374151;
+    --text-color-light: #FFFFFF;
+    --card-bg-color: #FFFFFF;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --font-family: 'Inter', sans-serif;
+}
+
+// SCSS Variables (can be used alongside or instead of CSS custom properties)
+$primary-color: var(--primary-color);
+$primary-color-dark: var(--primary-color-dark);
+$primary-color-hover: var(--primary-color-hover);
+$secondary-color: var(--secondary-color);
+$secondary-color-hover: var(--secondary-color-hover);
+$danger-color: var(--danger-color);
+$danger-color-hover: var(--danger-color-hover);
+$light-gray-color: var(--light-gray-color);
+$medium-gray-color: var(--medium-gray-color);
+$dark-gray-color: var(--dark-gray-color);
+$text-color-light: var(--text-color-light);
+$card-bg-color: var(--card-bg-color);
+$border-radius: var(--border-radius);
+$box-shadow: var(--box-shadow);
+$font-family: var(--font-family);
+
+// --- Global Styles ---
+body {
+    font-family: $font-family;
+    margin: 0;
+    background-color: $light-gray-color;
+    color: $dark-gray-color;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.site-main {
+    flex-grow: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+// --- Header ---
+.site-header {
+    background-color: $primary-color-dark;
+    color: $text-color-light;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: $text-color-light;
+        text-decoration: none;
+        font-size: 1.75rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+
+        .logo-icon {
+            margin-right: 0.5rem;
+            margin-top: -2px;
+        }
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+
+        .user-greeting {
+            color: #E0E7FF;
+            margin-right: 1rem;
+        }
+        // Button styles are defined globally under .btn
+    }
+}
+
+// --- Footer ---
+.site-footer {
+    background-color: $primary-color-dark;
+    color: $text-color-light;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+    box-shadow: inset 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    .footer-subtitle {
+        font-size: 0.875rem;
+        color: #A5B4FC;
+        margin-top: 0.25rem;
+    }
+}
+
+// --- Card ---
+.card {
+    background-color: $card-bg-color;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    h1, h2 {
+        color: $primary-color-dark;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    h2 {
+         margin-bottom: 1rem;
+    }
+}
+
+// --- Forms ---
+.auth-form, .form-stacked {
+    div {
+        margin-bottom: 1.25rem;
+    }
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $dark-gray-color;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid $medium-gray-color;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
+}
+
+// --- Buttons ---
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: $border-radius;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    text-decoration: none;
+
+    svg {
+        margin-right: 0.5em;
+        width: 1em; // Ensure icons scale with button font size
+        height: 1em;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    color: $text-color-light;
+    &:hover { background-color: $primary-color-hover; }
+}
+
+.btn-secondary {
+    background-color: $secondary-color;
+    color: $text-color-light;
+    &:hover { background-color: $secondary-color-hover; }
+}
+
+.btn-danger {
+    background-color: $danger-color;
+    color: $text-color-light;
+    &:hover { background-color: $danger-color-hover; }
+}
+
+.btn-light {
+    background-color: #E5E7EB;
+    color: $dark-gray-color;
+    &:hover { background-color: $medium-gray-color; }
+}
+
+.btn-logout {
+    background-color: $danger-color;
+    color: $text-color-light;
+    padding: 0.5rem 1rem;
+    &:hover { background-color: $danger-color-hover; }
+}
+
+.btn-full-width {
+    width: 100%;
+    display: block;
+}
+
+// --- Auth Section Specifics ---
+.auth-section {
+    max-width: 450px;
+    margin: 2rem auto; // Added some top/bottom margin
+
+    .auth-card { // Specific styling for auth card if needed, inherits .card
+        // Example: border-top: 5px solid $primary-color;
+    }
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: #6B7280;
+        }
+    }
+    .auth-switch-text {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        color: $dark-gray-color;
+    
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            font-weight: 500;
+    
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+// --- Insurance Section ---
+.insurance-section {
+    .insurance-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 2fr; // 33% and 67% approx
+        }
+         @media (min-width: 1024px) { // Example for larger screens
+            grid-template-columns: 300px 1fr; // Fixed sidebar
+        }
+    }
+
+    .insurance-items-container {
+        .empty-list-message {
+            color: #6B7280;
+            font-style: italic;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
+    .insurance-item {
+        background-color: #F9FAFB;
+        padding: 1.25rem;
+        border-radius: $border-radius;
+        border: 1px solid $medium-gray-color;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        transition: border-color 0.2s, box-shadow 0.2s;
+
+        &:hover {
+            border-color: $primary-color;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: $primary-color;
+            font-size: 1.125rem;
+        }
+
+        p {
+            font-size: 0.875rem;
+            color: $dark-gray-color;
+            margin-bottom: 0.25rem;
+            strong { font-weight: 500; }
+        }
+        .details-link {
+            display: block;
+            text-align: right;
+            font-size: 0.875rem;
+            color: $primary-color-dark;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+    }
+}
+
+// --- Details Page ---
+.details-section {
+    max-width: 700px;
+    margin: 2rem auto;
+
+    .details-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        h1 {
+            margin-bottom: 0;
+            text-align: left;
+        }
+        .btn svg { // Ensure icon alignment within button
+            margin-top: -1px;
+        }
+    }
+
+    .insurance-info-display {
+        p {
+            margin-bottom: 0.85rem;
+            font-size: 1rem;
+            border-bottom: 1px solid $light-gray-color; // Subtle separator
+            padding-bottom: 0.85rem;
+            display: flex; // For better label-value alignment
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .info-label {
+            font-weight: 600;
+            color: #111827;
+            min-width: 150px; // Adjust as needed
+            display: inline-block; // Or flex-basis for more control
+            margin-right: 1rem;
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        .btn {
+            flex: 1;
+        }
+    }
+}
+
+// --- Modals ---
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000; // Ensure it's on top
+
+    &.hidden { // For static demo, this class would be removed to show a modal
+        display: none;
+    }
+}
+
+.modal-content {
+    background-color: $card-bg-color;
+    padding: 1.5rem 2rem;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid $medium-gray-color;
+
+        h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: $primary-color-dark;
+            &.text-danger { // For delete confirmation title
+                color: $danger-color;
+            }
+        }
+
+        .modal-close-button {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            color: $dark-gray-color;
+            cursor: pointer;
+            &:hover { color: $danger-color; }
+        }
+    }
+
+    p { // General paragraph styling within modal
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+        .btn { min-width: 100px; }
+    }
+}
+
+// --- Utility Classes (if any) ---
+.hidden {
+    display: none !important;
+}
+
+// --- Responsive Adjustments ---
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 1.5rem;
+        .modal-header h3 { font-size: 1.25rem; }
+    }
+    .details-section .action-buttons,
+    .insurance-section .insurance-layout .create-insurance-column .card .form-stacked .btn, // Example of deep nesting
+    .auth-section .auth-card .auth-form .btn { // Stack buttons or adjust
+        // flex-direction: column; // For .action-buttons
+    }
+     .details-section .details-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        h1 { margin-bottom: 0.75rem; }
+        .btn { margin-top: 0.5rem; }
+    }
+}

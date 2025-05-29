@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагувати Страховку - InsurePro (Статичний Демо)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css"> </head>
+<body>
+
+    <header class="site-header">
+        <nav class="container nav-container">
+            <a href="index.html" class="logo">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                InsurePro
+            </a>
+            <div class="header-actions">
+                 <span class="user-greeting">Вітаємо, Демо Користувач!</span>
+                 <button type="button" class="btn btn-logout">Вийти</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container site-main">
+        <section class="edit-insurance-section">
+            <div class="card form-card">
+                <div class="form-card-header">
+                    <h1>Редагування Страховки</h1>
+                    <p class="insurance-id-display">ID Полісу: INS-2024-05-001</p>
+                </div>
+
+                <form id="edit-insurance-form" class="form-stacked">
+                    <div>
+                        <label for="edit-type">Тип страхування:</label>
+                        <select id="edit-type">
+                            <option value="CarInsurance" selected>Автоцивілка (ОСЦПВ)</option>
+                            <option value="HealthInsurance">Медичне страхування</option>
+                            <option value="HouseInsurance">Страхування майна</option>
+                            <option value="TravelInsurance">Туристичне страхування</option>
+                            <option value="LifeInsurance">Страхування життя</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="edit-method">Метод страхування:</label>
+                        <select id="edit-method">
+                             <option value="FullInsurance" selected>Повне покриття</option>
+                             <option value="PartialInsurance">Часткове покриття</option>
+                             <option value="BasicInsurance">Базове покриття</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="edit-status">Статус страхування:</label>
+                        <select id="edit-status">
+                            <option value="Active" selected>Активна</option>
+                            <option value="Pending">Очікує оплати</option>
+                            <option value="Expired">Закінчилась</option>
+                            <option value="Canceled">Скасована</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="edit-price">Ціна (грн):</label>
+                        <input type="number" id="edit-price" value="1250.00" step="0.01">
+                    </div>
+                     <div>
+                        <label for="edit-pay">Сплачено (грн):</label>
+                        <input type="number" id="edit-pay" value="1250.00" step="0.01">
+                    </div>
+                    <div>
+                        <label for="edit-start-date">Дата початку:</label>
+                        <input type="date" id="edit-start-date" value="2024-01-15">
+                    </div>
+                    <div>
+                        <label for="edit-end-date">Дата закінчення:</label>
+                        <input type="date" id="edit-end-date" value="2025-01-14">
+                    </div>
+                    <div>
+                        <label for="edit-policy-number">Номер полісу:</label>
+                        <input type="text" id="edit-policy-number" value="XYZ123456789">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 1.25em; height: 1.25em;"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                            Зберегти Зміни
+                        </button>
+                        <a href="insurance_details.html" class="btn btn-light">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 1.25em; height: 1.25em;"><path fill-rule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clip-rule="evenodd" /></svg>
+                            Скасувати
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 InsurePro. Всі права захищено.</p>
+        <p class="footer-subtitle">Надійне страхування для вашого спокою</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мої Страховки - InsurePro </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css"> </head>
+<body>
+
+    <header class="site-header">
+        <nav class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                InsurePro
+            </a>
+            <div class="header-actions">
+                 <span class="user-greeting">Вітаємо, Користувач!</span>
+                 <button type="button" class="btn btn-logout">Вийти</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container site-main">
+        <section class="insurance-section">
+            <div class="insurance-layout">
+                <div class="create-insurance-column">
+                    <div class="card">
+                        <h2>Створити Нову Страховку</h2>
+                        <form id="create-insurance-form" class="form-stacked">
+                            <div>
+                                <label for="type">Тип страхування:</label>
+                                <select id="type">
+                                    <option value="" disabled selected>Оберіть тип</option>
+                                    <option value="CarInsurance">Автоцивілка (ОСЦПВ)</option>
+                                    <option value="HealthInsurance">Медичне страхування</option>
+                                    <option value="HouseInsurance">Страхування майна</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="method">Метод страхування:</label>
+                                <select id="method">
+                                    <option value="" disabled selected>Оберіть метод</option>
+                                    <option value="FullInsurance">Повне покриття</option>
+                                    <option value="PartialInsurance">Часткове покриття</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="status">Статус страхування:</label>
+                                <select id="status">
+                                    <option value="" disabled selected>Оберіть статус</option>
+                                    <option value="Active">Активна</option>
+                                    <option value="Pending">Очікує оплати</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="price">Ціна (грн):</label>
+                                <input type="number" id="price" placeholder="0.00" step="0.01">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-full-width">Створити Страховку</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="insurance-list-column">
+                    <div class="card">
+                        <h2>Мої Страховки</h2>
+                        <div id="insurance-list" class="insurance-items-container">
+                            <div class="insurance-item" onclick="window.location.href='insurance_details.html'">
+                                <h3>Автоцивілка (ОСЦПВ)</h3>
+                                <p><strong>Статус:</strong> Активна</p>
+                                <p><strong>Ціна:</strong> 1250.00 грн</p>
+                                <span class="details-link">Детальніше...</span>
+                            </div>
+                            <div class="insurance-item" onclick="window.location.href='insurance_details.html'">
+                                <h3>Страхування майна</h3>
+                                <p><strong>Статус:</strong> Очікує оплати</p>
+                                <p><strong>Ціна:</strong> 3500.00 грн</p>
+                                <span class="details-link">Детальніше...</span>
+                            </div>
+                            <div class="insurance-item" onclick="window.location.href='insurance_details.html'">
+                                <h3>Медичне страхування</h3>
+                                <p><strong>Статус:</strong> Активна</p>
+                                <p><strong>Ціна:</strong> 5800.00 грн</p>
+                                <span class="details-link">Детальніше...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 InsurePro. Всі права захищено.</p>
+        <p class="footer-subtitle">Розроблено з ❤️ для вашої безпеки</p>
+    </footer>
+</body>
+</html>
