@@ -23,15 +23,12 @@ wss.on('connection', ws => {
             const parsedMessage = JSON.parse(message);
 
             if (parsedMessage.username && parsedMessage.message && parsedMessage.type) {
-                // --- ЗМІНА ТУТ ---
-                // Пересилаємо повідомлення всім підключеним клієнтам, КРІМ ВІДПРАВНИКА
+            
                 clients.forEach(client => {
-                    // Якщо клієнт не є відправником і його з'єднання відкрите
                     if (client !== ws && client.readyState === WebSocket.OPEN) {
                         client.send(JSON.stringify(parsedMessage));
                     }
                 });
-                // --- КІНЕЦЬ ЗМІНИ ---
             } else {
                 console.warn('Отримано неповне або неправильно відформатоване повідомлення:', parsedMessage);
             }
